@@ -1,0 +1,21 @@
+<div class="centra" id="float">
+    <app-form-pernottamento (event)="risForm($event)"></app-form-pernottamento>
+    <div *ngIf="submitF">
+        <ng-container *ngIf="camereL.length>0; else nienteCamere">
+            <div>
+                <h2>Per questa data sono disponibili {{camereL.length}} camere</h2>
+                <p>Per il tipo selezionato <b>{{camereL[0].tipo.composizione.tipoComp}}</b></p><br>
+            </div>
+            <div *ngFor="let tratt of trattamento">
+
+                <p><b>{{tratt.tipo}}</b> {{tratt.prezzo}}€</p>
+                <button type="submit"  (click)="selTra(tratt)" >Submit</button>
+                
+            </div>
+            
+        </ng-container>
+        <ng-template #nienteCamere>
+            <p> <b>NON CI SONO CAMERE DISPONIBILI</b></p>
+        </ng-template>
+    </div>
+</div>

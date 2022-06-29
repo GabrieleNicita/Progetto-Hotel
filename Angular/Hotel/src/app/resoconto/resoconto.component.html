@@ -1,0 +1,26 @@
+<div *ngIf="final">
+        <app-lista-camere *ngIf="contr&&contr1" (eventoS)="tipoC($event)"></app-lista-camere>
+        <app-form-utente *ngIf="!contr&&contr1"(subForm)="formU($event)"></app-form-utente>
+    
+
+    <div *ngIf="!contr&&!contr1" class="center" id="float">
+        <h3>Resoconto della tua tua richiesta</h3>
+        <div>
+            <p><strong>Nome: </strong>{{utente.nome}}</p>
+            <p><strong>Cognome: </strong>{{utente.cognome}}</p>
+            <p><strong>Telefono</strong>{{utente.telefono}}</p>
+            <p><strong>Email: </strong>{{utente.email}}</p><br>
+        </div>
+            <p><strong>{{camera.inizio}}</strong> fino al <strong>{{camera.fine}}</strong></p>
+            
+        <div>
+            <p><strong>Tipo di camera: </strong>{{camera.tipoCamera}} = {{prenot['dataTipo'].tipo.prezzo+prenot['tipoTrattamento'].prezzo}}€ a persona</p>
+            <p><strong>Trattamento: </strong>{{camera.trattamento}}</p><br>
+            <p><strong>Prezzo Totale: </strong>{{camera.prezzo}}</p>
+            <button type="submit"  (click)="subResoconto()" >Prenota</button>
+        </div>
+    </div>
+</div>  
+<div *ngIf="!final" class="center" id="float">
+    <p><strong> Prenotazione avvenuta con successo</strong></p><button type="submit" [routerLink]="['..']">torna alla home</button>
+</div>

@@ -1,0 +1,15 @@
+<div >
+
+    <form [formGroup]="formData" (ngSubmit)="formSub()">
+        Inizio Prenottamento<input type="date" formControlName="inizio">
+        Fine Pernottamento<input type="date" formControlName="fine" ><br><br>
+        Tipo Camera
+        <select formControlName="tipo" class="form-control">  
+            <option disabled >Tipo di camera</option>  
+            <option *ngFor="let t of tipo_camera" [ngValue]="t">{{t.tipo}}</option>  
+        </select> 
+        
+        <input type="submit">
+    </form>
+
+</div>
